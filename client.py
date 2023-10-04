@@ -16,7 +16,10 @@ def run():
         rpc_call = input("Which rpc would you like to make?")
 
         if rpc_call == "1":
-            print("Not Implemented")
+            hello_request = pb2.HelloRequest(name="John", greeting="Bonjour")
+            hello_reply = stub.SayHello(hello_request)
+            print("SayHello Response Received")
+            print(hello_reply)
         if rpc_call == "2":
             print("Not Implemented")
         if rpc_call == "3":
