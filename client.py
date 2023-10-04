@@ -46,7 +46,12 @@ def run():
             print("ChattyClientSaysHello Response Received: ")
             print(delayed_reply)
         elif rpc_call == "4":
-            
+            responses = stub.InteractingHello(get_client_stream_requests())
+
+            for response in responses:
+                print("InteractingHello Response Received: ")
+                print(response)
+
 
 if __name__ == "__main__":
     run()
