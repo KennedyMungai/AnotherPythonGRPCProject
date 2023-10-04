@@ -32,7 +32,7 @@ def run():
             hello_reply = stub.SayHello(hello_request)
             print("SayHello Response Received")
             print(hello_reply)
-        if rpc_call == "2":
+        elif rpc_call == "2":
             hello_request = pb2.HelloRequest(name="John", greeting="Bonjour")
             hello_replies = stub.ParrotSaysHello(hello_request)
 
@@ -40,14 +40,13 @@ def run():
                 print("Parrot Says Hello Response received")
                 print(hello_reply)
 
-        if rpc_call == "3":
+        elif rpc_call == "3":
             delayed_reply = stub.ChattyClientSaysHello(
                 get_client_stream_requests())
             print("ChattyClientSaysHello Response Received: ")
             print(delayed_reply)
-        if rpc_call == "4":
-            print("Not Implemented")
-
+        elif rpc_call == "4":
+            
 
 if __name__ == "__main__":
     run()
