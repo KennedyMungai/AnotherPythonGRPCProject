@@ -8,18 +8,6 @@ import greet_pb2 as pb2
 import greet_pb2_grpc as pb2_grpc
 
 
-def get_client_stream_requests():
-    while True:
-        name = input("Please enter a name (or nothing to stop chatting): ")
-
-        if name == "":
-            break
-
-        hello_request = pb2.HelloRequest(name=name, greeting="Hello")
-        yield hello_request
-        time.sleep(1)
-
-
 class GreeterService(pb2_grpc.GreeterServicer):
     def SayHello(self, request, context):
         print("Say Hello Request Made: ")

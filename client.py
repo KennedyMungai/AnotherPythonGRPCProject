@@ -4,6 +4,18 @@ import greet_pb2_grpc as pb2_grpc
 import time
 
 
+def get_client_stream_requests():
+    while True:
+        name = input("Please enter a name (or nothing to stop chatting): ")
+
+        if name == "":
+            break
+
+        hello_request = pb2.HelloRequest(name=name, greeting="Hello")
+        yield hello_request
+        time.sleep(1)
+
+
 def run():
     with grpc.insecure_channel('localhost:50051') as channel:
         stub = pb2_grpc.GreeterStub(channel)
