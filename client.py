@@ -41,7 +41,10 @@ def run():
                 print(hello_reply)
 
         if rpc_call == "3":
-            print("Not Implemented")
+            delayed_reply = stub.ChattyClientSaysHello(
+                get_client_stream_requests())
+            print("ChattyClientSaysHello Response Received: ")
+            print(delayed_reply)
         if rpc_call == "4":
             print("Not Implemented")
 
